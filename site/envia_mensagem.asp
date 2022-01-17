@@ -1,18 +1,22 @@
 <!--#include file ="lib/Conexao.asp"--> 
 <%
-'recebendo os parametros enviado pelo form através do Request.form
+
+
+'recebendo os parametros enviado pelo form atravï¿½s do Request.form
 
 
 nome     = request.form("nome")
 email    = request.form("email")
 assunto  = request.form("assunto")
+Telefone = request.form("Telefone")
 mensagem = request.form("mensagem")
-
-'inserir no bando de dados através do INSERT
+'RESPONSE.write nome
+'RESPONSE.END
+'inserir no bando de dados atravï¿½s do INSERT
 call abreConexao
-sql = "insert into AU_Contato (NomeCliente, EmailCliente, Assunto, Menssagem, DataContato) values ('"&nome&"','"&email&"','"&assunto&"','"&mensagem&"', getdate())"
-'response.write sql
-'response.end
+sql = "insert into DL_Contato (NomeCliente, EmailCliente, Assunto, Telefone, Mensagem, DataContato) values ('"&nome&"','"&email&"','"&assunto&"', '"&Telefone&"','"&mensagem&"', getdate())"
+response.write sql
+response.end
 'response.write sql
 'response.end
 conn.execute(sql)

@@ -1,6 +1,6 @@
+<!--#include file ="lib/Conexao.asp"--> 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -430,10 +430,10 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="envia_mensagem.asp" method="post" role="form" >
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome" required>
+                  <input type="text" name="nome" class="form-control" id="name" placeholder="Seu Nome" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" placeholder="joao@gmail.com" required>
@@ -441,10 +441,10 @@
               </div>
  				<div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="Descricao" class="form-control" id="Descricao" placeholder="Descrição" required>
+                  <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Descrição" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="Telefone" class="form-control" name="Telefone" id="Telefone" placeholder="(00)00000-0000" required>
+                  <input type="text" class="form-control" name="Telefone" id="Telefone" placeholder="(00)00000-0000" required>
                 </div>
               </div>
               <div class="form-group mt-3">
@@ -453,7 +453,7 @@
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Menssagem enviada com Sucesso!</div>
               </div>
               <div class="text-center"><button type="submit">Enviar</button></div>
             </form>
