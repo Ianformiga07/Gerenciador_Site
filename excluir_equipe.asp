@@ -1,4 +1,5 @@
 <!--#include file ="lib/Conexao.asp"-->
+
 <%
 
 cod = Request.QueryString("cod")

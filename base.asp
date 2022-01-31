@@ -14,6 +14,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>SGC</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
     <!-- Custom CSS -->

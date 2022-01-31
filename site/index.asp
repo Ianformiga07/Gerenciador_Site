@@ -428,9 +428,10 @@
 
         </div>
 
+
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="envia_mensagem.asp" method="post" role="form" >
+            <form action="envia_mensagem.asp" method="post" role="form" class="form-group">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="nome" class="form-control" id="name" placeholder="Seu Nome" required>
@@ -444,7 +445,7 @@
                   <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Descrição" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="Telefone" id="Telefone" placeholder="(00)00000-0000" required>
+                  <input type="Telefone" class="form-control" name="Telefone" id="Telefone" placeholder="(00)00000-0000" required>
                 </div>
               </div>
               <div class="form-group mt-3">

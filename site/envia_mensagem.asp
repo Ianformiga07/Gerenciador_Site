@@ -12,7 +12,7 @@ Telefone = request.form("Telefone")
 mensagem = request.form("mensagem")
 'RESPONSE.write nome
 'RESPONSE.END
-'inserir no bando de dados atrav�s do INSERT
+'inserir no bando de dados através do INSERT
 call abreConexao
 sql = "insert into DL_Contato (NomeCliente, EmailCliente, Assunto, Telefone, Mensagem, DataContato) values ('"&nome&"','"&email&"','"&assunto&"', '"&Telefone&"','"&mensagem&"', getdate())"
 response.write sql

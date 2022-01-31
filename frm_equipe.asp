@@ -4,9 +4,9 @@
 
 <%
 
-cod = Request.QueryString("cod")
-evt  = Request.QueryString("evt")
-anexo         =  Request.Form("AnexoPortfolio")
+cod   = Request.QueryString("cod")
+evt   = Request.QueryString("evt")
+anexo =  Request.Form("AnexoPortfolio")
 Nome  =  Request.Form("nome")
 call abreConexao
 if cod <> "" then
@@ -38,8 +38,44 @@ call fechaConexao
     <meta name="keywords">
        
 </head>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
+<script>
+function validar(){
+	if(document.frm_Equipe.NomeCompleto.value == ""){
+        Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio Digitar o Nome!',
+		 })
+         document.frm_Equipe.NomeCompleto.focus();
+         return false;
+     }
+     if (document.frm_Equipe.Cargo.value == ""){
+		 Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio digitar o Cargo!',
+			
+		 })
+		 document.frm_Equipe.Cargo.focus()
+		 return false;
+		 }
+     if (document.frm_Equipe.anexo.value == ""){
+		 Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio Inserir o anexo!',
+			
+		 })
+		 document.frm_Equipe.anexo.focus()
+		 return false;
+		 }
+     else{
+       document.frm_Equipe.action = "manu_equipe.asp";
+     }
+}
+</script>
 
       
         <div class="page-wrapper" style="min-height: 250px;">
@@ -65,7 +101,7 @@ call fechaConexao
                     <div class="col-md-12">
                         <div class="white-box">
                             <h3 class="box-title">Cadastro</h3>
-   <form class="form-horizontal" name="frm_Equipe" action="manu_equipe.asp" method="post" enctype="multipart/form-data">
+   <form class="form-horizontal" name="frm_Equipe"  method="post" enctype="multipart/form-data">
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="Nomefoto"><b>Nome Completo:</b></label>
@@ -87,7 +123,7 @@ call fechaConexao
        </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary" name="Botao" value="<%=bot%>"><%=bot%></button>
+        <button type="submit" class="btn btn-primary" name="Botao" onClick="return validar();" value="<%=bot%>"><%=bot%></button>
       </div>
     </div>
 	<input type="hidden" name="hfcod" value="<%=cod%>">

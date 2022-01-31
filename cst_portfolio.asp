@@ -46,16 +46,27 @@ set rs = conn.execute(sql)
     </div>
   </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
  <script>
 function Excluir(cod)
    {
-	 if(confirm("Confirma exclusão?"))
-	  {
-	    parent.location = "excluir_portfolio.asp?opc=exc&cod=" + cod ;
-      }
-   
-   } 
+Swal.fire({
+  title: 'Deseja continuar?',
+    text: "O usuário será desativado e não será mais listado no sistema!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',    
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Sim, prosseguir!'
+  }).then((result) => {
+    if (result.value) {
+        window.location="excluir_portfolio.asp?opc=exc&cod=" + cod ;
+    }
+  })
+  }
+
    $(document).ready(function(){
   $('.modal-trigger').on("click", function(e) {
     e.preventDefault();
