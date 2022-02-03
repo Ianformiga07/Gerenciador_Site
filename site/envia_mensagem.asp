@@ -15,8 +15,8 @@ mensagem = request.form("mensagem")
 'inserir no bando de dados através do INSERT
 call abreConexao
 sql = "insert into DL_Contato (NomeCliente, EmailCliente, Assunto, Telefone, Mensagem, DataContato) values ('"&nome&"','"&email&"','"&assunto&"', '"&Telefone&"','"&mensagem&"', getdate())"
-response.write sql
-response.end
+'response.write sql
+'response.end
 'response.write sql
 'response.end
 conn.execute(sql)

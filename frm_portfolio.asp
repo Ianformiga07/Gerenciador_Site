@@ -135,7 +135,7 @@ function validar(){
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center"> 2021 © <a
-                    href="https://www.wrappixel.com/">ADAPEC-TO</a>
+                    href="">ADAPEC-TO</a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

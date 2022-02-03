@@ -24,31 +24,44 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-
+                <%
+				call abreConexao
+				sql = "select count(*) as qtd_Equipe from DL_CadEquipe;"
+				set rs = conn.execute(sql)
+				%>
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Equipe</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <i aria-hidden="true"><img src="imagens/usuario.png" width="40"></i>
-                                <li class="ms-auto"><span class="counter text-success"></span></li>
-                               
+                                <li class="ms-auto"><span class="counter text-success"><%=rs("qtd_Equipe")%></span></li>
+                               <%call fechaConexao%>
                             </ul>
                         </div>
                     </div>
+                    <%
+					call abreConexao
+					sql = "select count(*) as qtd_servicos from DL_CadServico;"
+					set rs = conn.execute(sql)
+					%>                    
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Serviços'</h3>
+                            <h3 class="box-title">Serviços</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <img src="imagens/curso.png" width="40">
                                 </li>
-                                <li class="ms-auto"><span class="counter text-purple"></span></li>
-                                
+                                <li class="ms-auto"><span class="counter text-purple"><%=rs("qtd_servicos")%></span></li>
+                                <%call fechaConexao%>
                             </ul>
                         </div>
                     </div>
-                  
+                    <%
+					call abreConexao
+					sql = "select count(*) as qtd_msg from DL_CadServico;"
+					set rs = conn.execute(sql)
+					%>               
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Caixa de entrada</h3>
@@ -56,9 +69,9 @@
                                 <li>
                                     <img src="imagens/caixa.png" width="40">
                                 </li>
-                                <li class="ms-auto"><span class="counter text-info"></span>
+                                <li class="ms-auto"><span class="counter text-info"><%=rs("qtd_msg")%></span>
                                 </li>
-                              
+                              <%call fechaConexao%>
                             </ul>
                         </div>
                     </div>
