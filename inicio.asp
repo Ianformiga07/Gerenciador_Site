@@ -84,39 +84,44 @@
                         
                     </div>
                 </div>
-
+<div class="container-fluid">
+   
+                <!-- ============================================================== -->
+                <!-- Recent Comments -->
+                <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12">
-                        <div class="white-box">
-                            <div class="d-md-flex mb-3">
-                                <h3 class="box-title mb-0">Mensagens Recentes</h3>
+                    <!-- .col -->
+                    <div class="col-md-20 col-lg-15 col-sm-20">
+                        <div class="card white-box p-0">
+                            <div class="card-body">
+                                <h3 class="box-title mb-0">Gerenciador Site D'LAURAS</h3>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table no-wrap">
-                                    <thead>
-                                        <tr>
-                                            <th class="border-top-0"><b>Nome</b></th>
-                                            <th class="border-top-0"><b>E-mail</b></th>
-                                            <th class="border-top-0"><b>Assunto</b></th>
-                                            <th class="border-top-0"><b>Data</b></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                         
-                                            <td ></td>
-                                            <td ></td>
-                                            <td ></td>
-                                            <td ></td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                   
-                                </table>
+                            <div class="comment-widgets">
+                                <!-- Comment Row -->
+<div class="col-lg-10">
+  <!-- Dropdown Basics -->
+  <div class="card mb-4">
+    <div class="card-body text-center">
+      <h4>Seja bem-vindo ao Gerenciador do Site D'LAURAS. Aqui você pode definir todas funcionalidades do site, tais como inserir, alterar e excluir
+      informações nos modulos determinados.</h4>
+      <h4>Clique no botão abaixo para visualizar as mensagens recentes.</h4>
+      <a href="cst_caixaentrada.asp" class="btn btn-outline-dark btn-icon-split">
+        <span class="icon text-red-50">
+          <i class="fas fa-flag"></i>
+        </span>
+        <span class="text">Selecionar Caixa de Entrada</span>
+      </a>
+    </div>
+  </div>
+</div>                                
+                                <!-- Comment Row -->
+                                 </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+             </div>
                 <!-- ============================================================== -->
                 <!-- Recent Comments -->
                 <!-- ============================================================== -->

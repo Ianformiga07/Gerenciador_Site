@@ -57,15 +57,15 @@
                                 <div class="d-flex flex-row comment-row p-3 mt-0">
                                     <div class="p-2"><img src="plugins/images/users/varun.jpg" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text ps-2 ps-md-3 w-100">
-                                        <h5 class="font-medium">Nome Completo:</h5>
-                                        <span class="mb-3 d-block">Ian Leandro Cardoso Formiga</span>
-                                        <h5 class="font-medium">E-mail:</h5>
+                                        <h4 class="font-medium">Nome Completo:</h4>
+                                        <span class="mb-3 d-block font-1px">Ian Leandro Cardoso Formiga</span>
+                                        <h4 class="font-medium">E-mail:</h4>
                                         <span class="mb-3 d-block">ianleandro87@gmail.com</span>
-                                        <h5 class="font-medium">Telefone:</h5>
+                                        <h4 class="font-medium">Telefone:</h4>
                                         <span class="mb-3 d-block">(63) 99286-3557</span>
-                                        <h5 class="font-medium">Descrição:</h5>
+                                        <h4 class="font-medium">Descrição:</h4>
                                         <span class="mb-3 d-block">Orçamento tal tal</span>
-                                        <h5 class="font-medium">Mensagem:</h5>
+                                        <h4 class="font-medium">Mensagem:</h4>
                                         <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries. </span>                                                                                                                        
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">03/02/2022</div>
                                         </div>
