@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <!--#include file ="base.asp"-->
@@ -45,6 +44,13 @@
                 <!-- ============================================================== -->
                 <!-- Recent Comments -->
                 <!-- ============================================================== -->
+<%
+' TESTANDO SE EXISTE MENSAGEM NA TABELA DE CONTATO
+call abreConexao
+sql = "select idCliente, NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, Assunto, Mensagem from DL_Contato"
+set rs = conn.execute(sql)
+
+%>
                 <div class="row">
                     <!-- .col -->
                     <div class="col-md-17 col-lg-12 col-sm-17">
@@ -55,18 +61,23 @@
                             <div class="comment-widgets">
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row p-3 mt-0">
-                                    <div class="p-2"><img src="plugins/images/users/varun.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="p-2"><img src="imagens/alt2.png" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text ps-2 ps-md-3 w-100">
+                                    <%if rs.eof then%>
+                                    <span class="mb-3 d-block font-1px">Não Existe Nenhum Registro na base de Dados!</span>
+                                    <%else
+                                    do while not rs.eof
+                                    %>
                                         <h4 class="font-medium">Nome Completo:</h4>
-                                        <span class="mb-3 d-block font-1px">Ian Leandro Cardoso Formiga</span>
+                                        <span class="mb-3 d-block font-1px"><%=rs("NomeCliente")%></span>
                                         <h4 class="font-medium">E-mail:</h4>
-                                        <span class="mb-3 d-block">ianleandro87@gmail.com</span>
+                                        <span class="mb-3 d-block"><%=rs("EmailCliente")%></span>
                                         <h4 class="font-medium">Telefone:</h4>
-                                        <span class="mb-3 d-block">(63) 99286-3557</span>
+                                        <span class="mb-3 d-block"><%=rs("telefone")%></span>
                                         <h4 class="font-medium">Descrição:</h4>
-                                        <span class="mb-3 d-block">Orçamento tal tal</span>
+                                        <span class="mb-3 d-block"><%=rs("Assunto")%></span>
                                         <h4 class="font-medium">Mensagem:</h4>
-                                        <span class="mb-3 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry.It has survived not only five centuries. </span>                                                                                                                        
+                                        <span class="mb-3 d-block"><%=rs("Mensagem")%></span>                                                                                                                        
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">03/02/2022</div>
                                         </div>
                                     </div>
@@ -80,7 +91,12 @@
                 </div>
              </div>
                     
-                    
+<%
+rs.movenext
+loop
+end if
+call fechaConexao
+%>                  
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

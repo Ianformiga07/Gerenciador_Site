@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -146,7 +147,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_modulo_up.asp"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_caixaentrada.asp"
                                 aria-expanded="false">
                                 <i class="fas fa-inbox" aria-hidden="true"></i>
                                 <span class="hide-menu">Caixa de Entrada</span>

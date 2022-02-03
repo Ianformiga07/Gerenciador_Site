@@ -2,86 +2,16 @@
 <!--#include file ="lib/Conexao.asp"-->
 <!--#include file ="base.asp"-->  
 <!DOCTYPE html>
-<%
-Existe = 0
-call abreConexao
-sql = "Select DL_CadServico.id_CadServico, DL_Servico.id_servico, DL_CadServico.NomeServico, DL_CadServico.Anexo, DL_Servico.Nome_Servico From DL_Servico INNER JOIN DL_CadServico on DL_CadServico.Tipo_Servico = DL_Servico.id_servico;"
-set rs = conn.execute(sql)
-
-
-%>
-
-<style type="text/css">
-.img-container{
-   overflow: hidden;
-}
-
-.img-container img{
-   width: 100%;
-   height: 100%;
-   -webkit-transition: -webkit-transform .5s ease;
-   transition: transform .5s ease;
-}
-
-.img-container:hover img{
-   -webkit-transform: scale(1.8);
-   transform: scale(1.8);
-}
-
-</style>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Anexo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body d-flex align-items-center img-container">
-        <img id="imageModal" src="Upload/<%=rs("Anexo")%>" class="img-fluid mx-auto d-block north" alt="..." style="height: 400px; width:400px" >
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
- <script>
-function Excluir(cod)
-   {
-Swal.fire({
-  title: 'Deseja continuar?',
-    text: "O usuário será desativado e não será mais listado no sistema!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',    
-    cancelButtonText: 'Cancelar',
-    confirmButtonText: 'Sim, prosseguir!'
-  }).then((result) => {
-    if (result.value) {
-        window.location="excluir_servico?opc=exc&cod=" + cod ;
-    }
-  })
-  }
+<script>
+function visualizar(cod)
+{
+  window.location="mensagem.asp?cod=" + cod ;
+}
 
-   $(document).ready(function(){
-  $('.modal-trigger').on("click", function(e) {
-    e.preventDefault();
-
-    var $this  = $(this),
-        $modal = $($this.data("target")),
-        linkImg = $this.data("value")
-
-      $modal.find('#exampleModal').html(name);
-      document.getElementById("imageModal").src = linkImg;
-        $modal.modal('show');
-    });
- });
- </script>
-
+</script>
 <html dir="ltr" lang="en">
 
 <head>
@@ -119,9 +49,14 @@ Swal.fire({
 							
 	
 <div class="container">
-<form action="frm_servico.asp" method=post>
-<button type="submit" class="btn btn-primary">Adicionar</button>
+<form name="frm_servico" method=post>
+<%
+' TESTANDO SE EXISTE MENSAGEM NA TABELA DE CONTATO
+call abreConexao
+sql = "select idCliente, NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato from DL_Contato"
+set rs = conn.execute(sql)
 
+%>
   <div class="table-responsive">          
   <table class="table">
     <thead>
@@ -129,11 +64,12 @@ Swal.fire({
   <tr><td>Não Existe Nenhum Registro na base de Dados!</td></tr>
   <%else%>
       <tr>
-        <th>#</th>
-        <th>Nome do Serviço</th>
-        <th>Anexo</th>
-        <th>Tipo do Servico</th>
-        <th>#</th>		
+        <th><b>#</b></th>
+        <th><b>Nome do Cliente</b></th>
+        <th><b>EmailCliente</b></th>
+        <th><b>telefone</b></th>
+        <th><b>Data da mensagem</b></th>
+        <th><b>#</b></th>		
       </tr>
     </thead>
     <tbody>
@@ -142,18 +78,15 @@ do while not rs.eof
 %>
       <tr>
         <td>
- <a href="frm_servico.asp?evt=alt&cod=<%=rs("id_CadServico")%>">
- <img src="imagens/alt.png" width="30">
+ <img src="imagens/alt2.png" width="40">
         </a>		
 		</td>
-        <td><%=rs("NomeServico")%></td>
-        <td> <button type="button" class="btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-value="<%=rs("Anexo")%>" style=" width: 7rem; height: 4rem;">
-                <img src="Upload/<%=rs("Anexo")%>" style=" width: 6rem; height: 3rem; border: 1px #555; border-radius: 6px;">
-              </button></td>
-        
-        <td><%=rs("Nome_Servico")%></td>
-          <td> <a href="javascript:Excluir(<%=rs("id_CadServico")%>)">
- <img src="imagens/excluir.png" width="30">
+        <td><%=rs("NomeCliente")%></td>
+        <td><%=rs("EmailCliente")%></td>
+        <td><%=rs("telefone")%></td>
+        <td><%=rs("DataContato")%></td>
+          <td> <a href="javascript:visualizar(<%=rs("idCliente")%>)">
+ <img src="imagens/visualizar.png" width="30">
         </a></td>
 
       </tr>
@@ -162,6 +95,7 @@ do while not rs.eof
 rs.movenext
 loop
 end if
+
 call fechaConexao
 
 %>
