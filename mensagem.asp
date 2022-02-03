@@ -1,3 +1,8 @@
+<%
+'cod           = request.querystring("cod")
+'response.write cod
+'response.end
+%>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <!--#include file ="base.asp"-->
@@ -45,9 +50,10 @@
                 <!-- Recent Comments -->
                 <!-- ============================================================== -->
 <%
+cod           = request.querystring("cod")
 ' TESTANDO SE EXISTE MENSAGEM NA TABELA DE CONTATO
 call abreConexao
-sql = "select idCliente, NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, Assunto, Mensagem from DL_Contato"
+sql = "select NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, Assunto, Mensagem from DL_Contato where idCliente = '"&(cod)&"'"
 set rs = conn.execute(sql)
 
 %>
@@ -77,7 +83,7 @@ set rs = conn.execute(sql)
                                         <h4 class="font-medium">Descrição:</h4>
                                         <span class="mb-3 d-block"><%=rs("Assunto")%></span>
                                         <h4 class="font-medium">Mensagem:</h4>
-                                        <span class="mb-3 d-block"><%=rs("Mensagem")%></span>                                                                                                                        
+                                        <textarea id="w3review" name="w3review" rows="5" cols="70"><%=rs("Mensagem")%></textarea>                                                                                                                        
                                             <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">03/02/2022</div>
                                         </div>
                                     </div>
