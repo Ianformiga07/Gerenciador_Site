@@ -36,7 +36,7 @@ hr {
 <script>
 function visualizar(){
     
-    window.location="visualizar.asp";
+    window.location="visualizar.asp?cod=" + 1;
 }
 </script>
 <body>
@@ -98,7 +98,6 @@ set rs = conn.execute(sql)
                                         <hr class="hr1">  
                                         <h4 class="font-medium">Mensagem Visualizada?</h4>
                                         <span><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="1" onclick="visualizar();">Sim</span>
-                                        <span><INPUT TYPE="RADIO" NAME="OPCAO"  VALUE="0" onclick="visualizar();"> Não</span>
                                         </div>
                                     </div>
                                 </div>
