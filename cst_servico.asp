@@ -143,7 +143,7 @@ do while not rs.eof
       <tr>
         <td>
  <a href="frm_servico.asp?evt=alt&cod=<%=rs("id_CadServico")%>">
- <img src="imagens/alt.png" width="30">
+ <img src="imagens/alt3.png" width="30">
         </a>		
 		</td>
         <td><%=rs("NomeServico")%></td>
