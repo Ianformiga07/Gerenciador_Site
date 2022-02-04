@@ -26,8 +26,19 @@
     <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
-</head>
 
+<style>
+hr {
+  margin: 40px 0;
+}
+</style>
+</head>
+<script>
+function visualizar(){
+    alert("oii")
+    window.location="visualizar.asp?cod=" + cod ;
+}
+</script>
 <body>
   <div class="page-wrapper" style="min-height: 250px;">
             <!-- ============================================================== -->
@@ -83,8 +94,14 @@ set rs = conn.execute(sql)
                                         <h4 class="font-medium">Descrição:</h4>
                                         <span class="mb-3 d-block"><%=rs("Assunto")%></span>
                                         <h4 class="font-medium">Mensagem:</h4>
-                                        <textarea id="w3review" name="w3review" rows="5" cols="70"><%=rs("Mensagem")%></textarea>                                                                                                                        
-                                            <div class="text-muted fs-2 ms-auto mt-2 mt-md-0">03/02/2022</div>
+                                        <span class="mb-3 d-block"> <%=rs("Mensagem")%></span> 
+                                        <hr class="hr1">  
+                                        <h4 class="font-medium">Mensagem Visualizada?</h4>
+                                        <span><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="op1">Sim</span>
+                                        <span><INPUT TYPE="RADIO" NAME="OPCAO"  VALUE="op2"> Não</span>
+                                        <div>
+                                        <button type="submit" class="btn btn-outline-dark btn-icon-split" onclick="visualizar();">Corfirmar Visualização</button>                                                                                                                                                                                 
+                                    </div>
                                         </div>
                                     </div>
                                 </div>

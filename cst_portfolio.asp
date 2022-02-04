@@ -120,7 +120,7 @@ Swal.fire({
 	
 <div class="container">
 <form action="frm_portfolio.asp" method=post>
-<button type="submit" class="btn btn-primary">Adicionar</button>
+<button type="submit" class="btn btn-outline-dark btn-icon-split">Adicionar</button>
 
   <div class="table-responsive">          
   <table class="table">
