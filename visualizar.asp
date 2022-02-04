@@ -1,4 +1,5 @@
 <%
-response.write "oiiiii"
+OPCAO = request.form("OPCAO")
+response.write (OPCAO)
 response.end
 %>
