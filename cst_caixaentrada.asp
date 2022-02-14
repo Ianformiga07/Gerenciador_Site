@@ -53,7 +53,7 @@ function visualizar(cod)
 <%
 ' TESTANDO SE EXISTE MENSAGEM NA TABELA DE CONTATO
 call abreConexao
-sql = "select idCliente, NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato from DL_Contato"
+sql = "select idCliente, NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, status as statusUsuario from DL_Contato order by idCliente DESC"
 set rs = conn.execute(sql)
 
 %>
@@ -69,6 +69,7 @@ set rs = conn.execute(sql)
         <th><b>EmailCliente</b></th>
         <th><b>telefone</b></th>
         <th><b>Data da mensagem</b></th>
+        <th><b>Status</b></th>
         <th><b>#</b></th>		
       </tr>
     </thead>
@@ -85,6 +86,12 @@ do while not rs.eof
         <td><%=rs("EmailCliente")%></td>
         <td><%=rs("telefone")%></td>
         <td><%=rs("DataContato")%></td>
+        <td><% if rs("statusUsuario") = true then %>
+          <font color="#009933"> Visualizado </font>
+          <%ELSE%>
+          <font color="#FF0000"> Não Visualizado </font>
+          <%end if%>          
+        </td>
           <td> <a href="javascript:visualizar(<%=rs("idCliente")%>)">
  <img src="imagens/visualizar.png" width="30">
         </a></td>

@@ -34,9 +34,9 @@ hr {
 </style>
 </head>
 <script>
-function visualizar(){
+function visualizar(cod){
     
-    window.location="visualizar.asp?cod=" + 1;
+  window.location="visualizar.asp?opc=1&cod=" + cod ;
 }
 </script>
 <body>
@@ -64,8 +64,9 @@ function visualizar(){
 cod           = request.querystring("cod")
 ' TESTANDO SE EXISTE MENSAGEM NA TABELA DE CONTATO
 call abreConexao
-sql = "select NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, Assunto, Mensagem from DL_Contato where idCliente = '"&(cod)&"'"
+sql = "select NomeCliente, EmailCliente, telefone, FORMAT (DataContato, 'dd/MM/yyyy ') as DataContato, Assunto, Mensagem, status as statusUsuario from DL_Contato where idCliente = '"&(cod)&"'"
 set rs = conn.execute(sql)
+
 
 %>
                 <div class="row">
@@ -95,12 +96,21 @@ set rs = conn.execute(sql)
                                         <span class="mb-3 d-block"><%=rs("Assunto")%></span>
                                         <h4 class="font-medium">Mensagem:</h4>
                                         <span class="mb-3 d-block"> <%=rs("Mensagem")%></span> 
-                                        <hr class="hr1">  
+                                        <%if rs("statusUsuario") = 0 then%>
+                                        <hr class="hr1"> 
                                         <h4 class="font-medium">Mensagem Visualizada?</h4>
-                                        <span><INPUT TYPE="RADIO" NAME="OPCAO" VALUE="1" onclick="visualizar();">Sim</span>
+                                        <span><input type="checkbox" id="opc" name="opc" value="1" onclick="visualizar('<%=cod%>');">
+                                        <label for="scales">Sim</span>
+                                        <%end if%>
                                         </div>
                                     </div>
                                 </div>
+                                <%
+rs.movenext
+loop
+end if
+call fechaConexao
+%> 
                                 <!-- Comment Row -->
                                  </div>
                                 </div>
@@ -110,12 +120,7 @@ set rs = conn.execute(sql)
                 </div>
              </div>
                     
-<%
-rs.movenext
-loop
-end if
-call fechaConexao
-%>                  
+                 
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
