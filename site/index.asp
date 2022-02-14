@@ -302,15 +302,17 @@ call fechaConexao
           <p>Nesses quase 27 anos de histórias além de clientes fizemos muitos amigos e parceiros, veja abaixo alguns depoimentos.
 Quer deixar um depoimento também?<a href="https://www.google.com/search?q=D%27Lauras+M%C3%B3veis+Planejados+-+Plano+Diretor+Sul%2C+Palmas+-+TO&sxsrf=APq-WBtzi__rkk35voC2r53ARTsOdcJZWw%3A1644853557254&source=hp&ei=NXkKYuLZDMfS1sQP8-Gs6AU&iflsig=AHkkrS4AAAAAYgqHRSf5sXZNNvsfDWvj3NXUPgz_5gaY&oq=dlauras+mo&gs_lcp=Cgdnd3Mtd2l6EAMYADICCCY6CwguEIAEEMcBEK8BOg4ILhCABBCxAxDHARDRAzoICAAQgAQQsQM6CwgAEIAEELEDEIMBOggIABCxAxCDAToFCAAQgAQ6CwguEIAEEMcBEKMCOggILhCABBCxAzoLCC4QgAQQxwEQ0QM6CwguEIAEELEDEIMBOgcIABCxAxAKOgcILhCABBAKOgoIABCxAxCDARAKOgcIABCABBAKOgoIABCABBDJAxAKOg0ILhCABBDHARCvARAKOggILhCxAxCDAToHCC4QsQMQCjoECC4QCjoECAAQCjoGCAAQChAeOgoILhDHARCvARATOgYIABAKEBM6BAgAEBM6CAgAEA0QHhATOgoIABANEAoQHhATOgwIABANEAUQChAeEBM6BggAEA0QHjoICAAQDRAKEB5QAFjLEGCCG2gAcAB4AIABzgGIAZoMkgEFMC45LjGYAQCgAQE&sclient=gws-wiz#lrd=0x933b35e740954b21:0xc661c1dddd9a25bd,3,,,">Clique aqui!</a></p>
         </div>
-<%
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+          <%
 call abreConexao
 sql = "select * from DL_Depoimento order by id_Depoimento"
 set rs = conn.execute(sql)
 do while not rs.eof
 %>
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
             <div class="swiper-slide">
+
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
