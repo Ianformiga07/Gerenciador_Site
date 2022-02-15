@@ -59,7 +59,7 @@
                     </div>
                     <%
 					call abreConexao
-					sql = "select count(*) as qtd_msg from DL_Contato;"
+					sql = "select count(*) as qtd_msg from DL_Contato WHERE status = 0;"
 					set rs = conn.execute(sql)
 					%>               
                     <div class="col-lg-4 col-md-12">
