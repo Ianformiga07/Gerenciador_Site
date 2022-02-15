@@ -24,17 +24,9 @@ call abreConexao
   call fechaConexao
 end if
 %>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
 
 <script>
-let status = <%=rs(cod)%>
-alert(status);
-  Swal.fire(
-  'Muito Bem!',
-  'Mensagem visualizada com sucesso!',
-  'success'
-)
+alert("Mensagem Visualizada com Sucesso!")
 parent.location = "cst_caixaentrada.asp"
 
 
