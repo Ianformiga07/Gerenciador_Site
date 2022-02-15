@@ -27,7 +27,7 @@ Swal.fire({
     confirmButtonText: 'Sim, prosseguir!'
   }).then((result) => {
     if (result.value) {
-        window.location="excluir_portfolio.asp?opc=exc&cod=" + cod ;
+        window.location="manu_depoimento.asp?opc=exc&cod=" + cod ;
     }
   })
   }

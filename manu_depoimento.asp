@@ -9,7 +9,7 @@ session.LCID = 1046
 opc          = request.querystring("opc")
 botao        =  request.form("botao")
 cod          =  request.form("hfcod")
-NomeCompleto         =  request.form("NomeCompleto")
+NomeCompleto =  request.form("NomeCompleto")
 Depoimento   =  request.form("Depoimento")
 'response.write(cod)
 'response.end
@@ -33,12 +33,12 @@ elseif botao = "Alterar" then
 ' ALTERANDO OS DADOS RECEBIDOS NA TABELA
 
   call abreConexao
-    sql = "update AU_Curso set"
+    sql = "update DL_Depoimento set"
     sql = sql & " NomeCompleto = '"&NomeCompleto&"',"
     sql = sql & " Depoimento = '"&Depoimento&"'"
     sql = sql & " where id_Depoimento = "&cod
-    response.write sql
-    response.end
+    'response.write sql
+    'response.end
     conn.execute(sql)
     call fechaConexao
 %>
@@ -49,15 +49,16 @@ elseif botao = "Alterar" then
 <%
 elseif opc <> "" then
 ' DELETANDO REGISTRO SELECIONADO
-'   cod = request.querystring("cod")
-'   sql = "delete from TABELA where CODIGO="&cod
-'  response.write sql
-'  response.end
-'   conexao.execute(sql)
+   cod = request.querystring("cod")
+   call abreConexao
+   sql = "delete from DL_Depoimento where id_Depoimento="&cod
+
+   conn.execute(sql)
+   call fechaConexao
 %>
 <script>
-    alert("Linha exclu�da com sucesso!")
-    parent.location = "cst_modelo.asp"
+    alert("Linha excluída com sucesso!")
+    parent.location = "cst_depoimento.asp"
 </script>
 <%
 end if
