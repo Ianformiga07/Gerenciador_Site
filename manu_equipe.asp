@@ -3,18 +3,6 @@
 <!--#include file="FuncaoUpload.asp"-->
 <!--#include file ="lib/Conexao.asp"-->
 
-<script>
-	if(document.frm_Equipe.NomeCompleto.value == ""){
-         Swal.fire({
- 		    icon: 'error',
-  			title: 'Oops...',
-  			text: 'Obrigatorio Digitar o Nome!',
-			
-		 })
-         document.frm_Equipe.NomeCompleto.focus();
-         return false;
-     }
-</script>
 <%
 
 Function ZerosEsquerda(Num,tam)

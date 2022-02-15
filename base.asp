@@ -140,10 +140,10 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_equipe.asp"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_depoimento.asp"
                                 aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Equipe</span>
+                                <i class="fas fa-comments" aria-hidden="true"></i>
+                                <span class="hide-menu">Depoimentos</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
