@@ -19,7 +19,7 @@ if ucase(evt) = "ALT" then
     'response.end
    set rs = conn.execute(sql)
 NomeCompleto          =  rs("NomeCompleto")
-Depoimento    =  rs("Depoimento")
+Depoimento            =  rs("Depoimento")
 Existe = 1
 
 
@@ -42,23 +42,23 @@ call fechaConexao
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
 <script>
 function validar(){
-	if(document.frm_Depoimento.NomeCompleto1.value == ""){
+	if(document.frm_Depoimento.NomeCompleto.value == ""){
         Swal.fire({
  		    icon: 'error',
   			title: 'Oops...',
   			text: 'Obrigatorio Digitar o Nome!',
 		 })
-         document.frm_Depoimento.NomeCompleto1.focus();
+         document.frm_Depoimento.NomeCompleto.focus();
          return false;
      }
-     if (document.frm_Depoimento.Depoimento1.value == ""){
+     if (document.frm_Depoimento.Depoimento.value == ""){
 		 Swal.fire({
  		    icon: 'error',
   			title: 'Oops...',
   			text: 'Obrigatorio digitar o Depoimento!',
 			
 		 })
-		 document.frm_Depoimento.Depoimento1.focus()
+		 document.frm_Depoimento.Depoimento.focus()
 		 return false;
 		 }
 }
@@ -89,7 +89,7 @@ function validar(){
                     <div class="col-md-12">
                         <div class="white-box">
                             <h3 class="box-title">Cadastro</h3>
-   <form class="form-horizontal" name="frm_Depoimento" method="post" enctype="multipart/form-data" action="manu_depoimento.asp">
+   <form class="form-horizontal" name="frm_Depoimento" method="post" action="manu_Depoimento.asp">
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="Nome"><b>Nome Completo:</b></label>

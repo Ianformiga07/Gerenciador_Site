@@ -9,24 +9,24 @@ session.LCID = 1046
 opc          = request.querystring("opc")
 botao        =  request.form("botao")
 cod          =  request.form("hfcod")
-Nome         =  request.form("NomeCompleto1")
-Depoimento   =  request.form("Depoimento1")
-response.write(request.form("NomeCompleto1"))
-response.end
+NomeCompleto         =  request.form("NomeCompleto")
+Depoimento   =  request.form("Depoimento")
+'response.write(cod)
+'response.end
 if botao = "Incluir" then
 ' INCLUINDO OS DADOS RECEBIDOS NA TABELA
 
    call abreConexao
    sql = "insert into DL_Depoimento(NomeCompleto, Depoimento)"
    sql = sql & " values('"&NomeCompleto&"', '"&Depoimento&"')"
-	response.write sql
-	response.end
+	'response.write sql
+	'response.end
     conn.execute(sql)
    call fechaConexao
 %>
 <script>
     alert("Dados incluido com sucesso!")
-    parent.location = "cst_modelo.asp"
+    parent.location = "cst_depoimento.asp"
 </script>
 <%
 elseif botao = "Alterar" then
