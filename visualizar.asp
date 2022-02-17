@@ -7,7 +7,7 @@ cod = request.querystring("cod")
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8" />
-		<title>Sweet Alert2</title>
+		<title>Visualiza</title>
 		<link rel="canonical" href="#" />
 		<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 	</head>
@@ -28,8 +28,6 @@ end if
 <script>
 alert("Mensagem Visualizada com Sucesso!")
 parent.location = "cst_caixaentrada.asp"
-
-
 
 </script>
 

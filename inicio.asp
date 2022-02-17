@@ -26,16 +26,16 @@
             <div class="container-fluid">
                 <%
 				call abreConexao
-				sql = "select count(*) as qtd_Equipe from DL_CadEquipe;"
+				sql = "select count(*) as qtd_Depoimento from DL_Depoimento;"
 				set rs = conn.execute(sql)
 				%>
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Equipe</h3>
+                            <h3 class="box-title">Depoimentos</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <i aria-hidden="true"><img src="imagens/usuario.png" width="40"></i>
-                                <li class="ms-auto"><span class="counter text-success"><%=rs("qtd_Equipe")%></span></li>
+                                <i aria-hidden="true"><img src="imagens/depo2.png" width="40"></i>
+                                <li class="ms-auto"><span class="counter text-success"><%=rs("qtd_Depoimento")%></span></li>
                                <%call fechaConexao%>
                             </ul>
                         </div>

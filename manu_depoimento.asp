@@ -23,11 +23,8 @@ if botao = "Incluir" then
 	'response.end
     conn.execute(sql)
    call fechaConexao
+   response.redirect("cst_depoimento.asp?resp=1")
 %>
-<script>
-    alert("Dados incluido com sucesso!")
-    parent.location = "cst_depoimento.asp"
-</script>
 <%
 elseif botao = "Alterar" then
 ' ALTERANDO OS DADOS RECEBIDOS NA TABELA
@@ -41,11 +38,8 @@ elseif botao = "Alterar" then
     'response.end
     conn.execute(sql)
     call fechaConexao
+    response.redirect("cst_depoimento.asp?resp=4")
 %>
-<script>
-    alert("Dados alterado com sucesso!")
-    parent.location = "cst_depoimento.asp"
-</script>
 <%
 elseif opc <> "" then
 ' DELETANDO REGISTRO SELECIONADO
@@ -55,11 +49,8 @@ elseif opc <> "" then
 
    conn.execute(sql)
    call fechaConexao
+   response.redirect("cst_depoimento.asp?resp=3")
 %>
-<script>
-    alert("Linha excluída com sucesso!")
-    parent.location = "cst_depoimento.asp"
-</script>
 <%
 end if
 %>

@@ -17,9 +17,13 @@ End Function
    'response.end
 ' Chamando Fun��es, que fazem o Upload funcionar
 byteCount = Request.TotalBytes
+on Error Resume Next
 RequestBin = Request.BinaryRead(byteCount)
 Set UploadRequest = CreateObject("Scripting.Dictionary")
 BuildUploadRequest RequestBin
+if Err.number <> 0 then
+response.redirect("cst_portfolio.asp?resp=2")
+end if
 
 'RECEBENDO DADOS DOS FORMUL�RIOS
 			'response.write(UploadRequest.Item("NomePortfolio").Item("Value"))
@@ -80,11 +84,8 @@ if botao = "Incluir" then
 	'response.end
     conn.execute(sql)
    call fechaConexao
+   response.redirect("cst_portfolio.asp?resp=1")
 %>
-<script>
-    alert("Dados incluído com sucesso!")
-    parent.location = "cst_portfolio.asp"
-</script>
 <%
 
 elseif botao = "Alterar" then
@@ -98,11 +99,8 @@ elseif botao = "Alterar" then
    'response.end
   conn.execute(sql)
   call fechaConexao
+  response.redirect("cst_portfolio.asp?resp=4")
 %>
-<script>
-    alert("Dados alterado com sucesso!")
-    parent.location = "cst_portfolio.asp"
-</script>
 <%
 
 elseif opc = "exc" then

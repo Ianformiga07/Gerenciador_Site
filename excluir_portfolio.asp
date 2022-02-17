@@ -13,11 +13,8 @@ if opc <> "" then
 
    conn.execute(sql)
    call fechaConexao
+    response.redirect("cst_portfolio.asp?resp=3")
 %>
-<script>
-    alert("Linha excluída com sucesso!")
-    parent.location = "cst_portfolio.asp"
-</script>
 <%
 end if
 %>

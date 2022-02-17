@@ -1,11 +1,12 @@
 <!--#include file ="lib/Conexao.asp"-->
 
 <%
-
+'response.write("oiii")
+'response.end
 cod = Request.QueryString("cod")
 opc = request.querystring("opc")
 exc  = Request.QueryString("exc")
-if opc <> "" then
+if opc = "exc" then
 
    cod = request.querystring("cod")
 
@@ -14,6 +15,7 @@ if opc <> "" then
 
    conn.execute(sql)
    call fechaConexao
+
 %>
 <script>
     alert("Linha excluída com sucesso!")

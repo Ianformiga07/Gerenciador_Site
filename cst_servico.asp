@@ -49,6 +49,10 @@ set rs = conn.execute(sql)
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
  <script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var resp = url.searchParams.get("resp");
+
 function Excluir(cod)
    {
 Swal.fire({
@@ -80,6 +84,41 @@ Swal.fire({
         $modal.modal('show');
     });
  });
+
+ mensagem(resp)
+function mensagem(resp){
+if(resp == 1){
+	Swal.fire(
+  'Otimo',
+  'Arquivo Cadastrado com Sucesso!',
+  'success'
+)
+}
+else
+if(resp == 2){
+	Swal.fire(
+  'Erro',
+  'Tamanho do Arquivo Excedido!',
+  'error'
+)
+}
+else
+if(resp == 3){
+	Swal.fire(
+  'Otimo',
+  'Arquivo Excluído com Sucesso!',
+  'success'
+)
+}
+else
+if(resp == 4){
+	Swal.fire(
+  'Otimo',
+  'Arquivo Alterado com Sucesso!',
+  'success'
+)
+}
+}
  </script>
 
 <html dir="ltr" lang="en">
