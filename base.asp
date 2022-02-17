@@ -153,8 +153,14 @@
                                 <span class="hide-menu">Caixa de Entrada</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_CadAdmin.asp"
+                                aria-expanded="false">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                <span class="hide-menu">Cadastro de Usuario</span>
+                            </a>                        
+                        </li>
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
