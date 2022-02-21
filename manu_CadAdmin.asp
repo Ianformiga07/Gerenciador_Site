@@ -8,7 +8,7 @@ session.LCID = 1046
 opc          = request.querystring("opc")
 botao        =  request.form("botao")
 cod          =  request.form("hfcod")
-CPF          =  request.form("CPF")
+CPF          =  request.form("txtCPF")
 NomeCompleto =  request.form("NomeCompleto")
 Email        =  request.form("Email")
 Senha        =  request.form("Senha")
@@ -21,7 +21,7 @@ if botao = "Incluir" then
 
    call abreConexao
    sql = "insert into DL_CadLogin(CPF, NomeCompleto, Email, Senha, Telefone, id_Perfil)"
-   sql = sql & " values('"&CPF&"', '"&NomeCompleto&"', '"&Email&"', '"&Senha&"', '"&Telefone&"', '"&Perfil&"')"
+   sql = sql & " values('"&replace(replace((CPF), ".", ""),"-", "")&"', '"&NomeCompleto&"', '"&Email&"', '"&Senha&"', '"&replace(replace(replace(replace((Telefone),"(",""),")",""),"-", ""), " ", "")&"', '"&Perfil&"')"
 	'response.write sql
 	'response.end
     conn.execute(sql)

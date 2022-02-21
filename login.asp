@@ -5,8 +5,10 @@
 dim existeCad
 IF REQUEST("Operacao") = 1 then
 call abreConexao
-	sql = "Select CPF, Senha From AU_Login WHERE CPF = '"&replace(replace(request.form("cpf"), ".", ""),"-", "")&"' AND Senha = '"&request.form("senha_login")&"'"
-	set rs = conn.execute(sql)
+	sql = "Select CPF, Senha From DL_CadLogin WHERE CPF = '"&replace(replace(request.form("cpf"), ".", ""),"-", "")&"' AND Senha = '"&request.form("senha_login")&"'"
+	'response.write sql
+  'response.end
+  set rs = conn.execute(sql)
 	if not rs.eof then
 	Session("CPF_Usu") = replace(replace(request.form("cpf"),".",""),"-","")
 	if replace(replace(request.form("cpf"), ".", ""),"-", "") = rs("CPF") and request.form("senha_login") = rs("Senha") then

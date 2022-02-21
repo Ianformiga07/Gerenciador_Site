@@ -44,28 +44,93 @@ call fechaConexao
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
+<script src="javascript/Mascara.js"></script>
 <script>
 function validar(){
-	if(document.frm_Depoimento.NomeCompleto.value == ""){
+  var senha = frm_CadAdmin.Senha.value;
+	if(document.frm_CadAdmin.txtCPF.value == "")
+	{   
+    Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio Digitar o CPF!',
+		 })
+		document.frm_CadAdmin.txtCPF.focus();
+		return false;
+	}
+	else
+	 if(!ValidarCPF(document.frm_CadAdmin.txtCPF.value.replace(".","").replace(".","").replace("-","")))
+	 {
+    Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'CPF Invalido ou está na formatação errada 000.000.000-00',
+		 })
+	   return false
+	 }
+	if(document.frm_CadAdmin.NomeCompleto.value == ""){
         Swal.fire({
  		    icon: 'error',
   			title: 'Oops...',
   			text: 'Obrigatorio Digitar o Nome!',
 		 })
-         document.frm_Depoimento.NomeCompleto.focus();
+         document.frm_CadAdmin.NomeCompleto.focus();
          return false;
      }
-     if (document.frm_Depoimento.Depoimento.value == ""){
+     if (document.frm_CadAdmin.Email.value == ""){
 		 Swal.fire({
  		    icon: 'error',
   			title: 'Oops...',
-  			text: 'Obrigatorio digitar o Depoimento!',
+  			text: 'Obrigatorio digitar o Email!',
 			
 		 })
-		 document.frm_Depoimento.Depoimento.focus()
+		 document.frm_CadAdmin.Email.focus()
 		 return false;
 		 }
+     if (document.frm_CadAdmin.Senha.value == ""){
+		 Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio digitar o Senha!',
+			
+		 })
+		 document.frm_CadAdmin.Senha.focus()
+		 return false;
+		 }
+     else if(senha.length < 8){
+      Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'A senha deve conter no mínimo 8 Caracteres!',
+			
+		 })
+		document.frmCadLogin.senha.focus();
+		return false;
+		}
+     if (document.frm_CadAdmin.Telefone.value == ""){
+		 Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio digitar o Telefone!',
+			
+		 })
+		 document.frm_CadAdmin.Telefone.focus()
+		 return false;
+		 }
+     
+     if (document.frm_CadAdmin.TipoPerfil.value == ""){
+		 Swal.fire({
+ 		    icon: 'error',
+  			title: 'Oops...',
+  			text: 'Obrigatorio Selecionar o Perfil!',
+			
+		 })
+		 document.frm_CadAdmin.TipoPerfil.focus()
+		 return false;
+		 }
+
 }
+
 </script>
 
 
@@ -93,12 +158,12 @@ function validar(){
                     <div class="col-md-12">
                         <div class="white-box">
                             <h3 class="box-title">Cadastro</h3>
-   <form class="form-horizontal" name="frm_Depoimento" method="post" action="manu_CadAdmin.asp">
+   <form class="form-horizontal" name="frm_CadAdmin" method="post" action="manu_CadAdmin.asp">
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="CPF1"><b>CPF:</b></label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="CPF" name="CPF" value="<%=CPF%>">
+        <input type="text" class="form-control" id="txtCPF" onKeyPress="MascaraCPF(txtCPF)" name="txtCPF" value="<%=CPF%>" maxlength="14" onblur="MascaraCPF(txtCPF);">
       </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="Nome"><b>Nome Completo:</b></label>
@@ -115,13 +180,13 @@ function validar(){
     <div class="form-group">
       <label class="control-label col-sm-2" for="Senha1"><b>Senha:</b></label>
       <div class="col-sm-4">
-        <input type="password" class="form-control" id="Senha" name="Senha" value="<%=Senha%>">
+        <input type="password" class="form-control" id="Senha" name="Senha" minlength="8" value="<%=Senha%>">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="Telefone1"><b>Telefone:</b></label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="Telefone" name="Telefone" value="<%=Telefone%>">
+        <input type="text" class="form-control" id="Telefone" onkeypress="MascaraCelular(Telefone)"  maxlength="15" name="Telefone" value="<%=Telefone%>" onblur="MascaraCelular(Telefone)">
       </div>
     </div>
      <%

@@ -1,7 +1,14 @@
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%>
 <!--#include file ="base.asp"-->
 <!--#include file ="lib/Conexao.asp"--> 
-
+<%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuáio não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
+%>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords">
    

@@ -1,4 +1,10 @@
 <!--#include file ="lib/Conexao.asp"--> 
+
+<%
+call abreConexao
+sql = "select * from DL_CadLogin where CPF = "&Session("CPF_Usu")&""
+set rs = conn.execute(sql)
+%>
 <!DOCTYPE html>
 <html lang="en"> 
 <head>

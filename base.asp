@@ -1,5 +1,18 @@
+<%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuário não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
 
+call abreConexao
+sql = "select * from DL_CadLogin where CPF = "&Session("CPF_Usu")&""
+'response.write(sql)
+'response.end
+set rs = conn.execute(sql)
 
+%>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -91,9 +104,11 @@
                         <!-- ============================================================== -->
                          <li>
                             <a class="profile-pic" href="#">
-							<span class="text-white font-medium"></span></a>
+							<span class="text-white font-medium"><%=rs("NomeCompleto")%></span></a>
                         </li>
-                       
+                        <%
+						call fechaConexao
+						%>
                         <li>
                             <a class="profile-pic" href="logout.asp">
                                 <span class="text-danger font-medium">Sair</span></a>
@@ -153,6 +168,7 @@
                                 <span class="hide-menu">Caixa de Entrada</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cst_CadAdmin.asp"
                                 aria-expanded="false">
@@ -160,6 +176,7 @@
                                 <span class="hide-menu">Cadastro de Usuario</span>
                             </a>                        
                         </li>
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
