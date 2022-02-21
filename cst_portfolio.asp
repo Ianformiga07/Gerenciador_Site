@@ -3,6 +3,13 @@
 <!--#include file ="base.asp"-->  
 <!DOCTYPE html>
 <%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuáio não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
+
 Existe = 0
 call abreConexao
 sql = "SELECT * FROM DL_CadPortfolio"
@@ -186,7 +193,7 @@ do while not rs.eof
 		</td>
         <td><%=rs("nome")%></td>
         <td>
-        <button type="button" class="btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-value="<%=rs("AnexoPortfolio")%>" style=" width: 7rem; height: 4rem;">
+        <button type="button" class="btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-value="Upload/<%=rs("AnexoPortfolio")%>" style=" width: 7rem; height: 4rem;">
                 <img src="Upload/<%=rs("AnexoPortfolio")%>" style=" width: 6rem; height: 3rem; border: 1px #555; border-radius: 6px;">
               </button></td>
           <td> <a href="javascript:Excluir(<%=rs("id_CadPortfolio")%>)">

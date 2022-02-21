@@ -3,6 +3,13 @@
 <!--#include file ="base.asp"-->  
 <!DOCTYPE html>
 <%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuáio não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
+
 Existe = 0
 call abreConexao
 sql = "SELECT DL_CadLogin.idLogin, DL_Perfil.id_perfil, DL_CadLogin.CPF, DL_CadLogin.NomeCompleto, DL_Perfil.tipo_perfil FROM DL_CadLogin INNER JOIN DL_Perfil on DL_Perfil.id_Perfil = DL_CadLogin.id_Perfil"

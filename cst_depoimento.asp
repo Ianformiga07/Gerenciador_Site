@@ -3,6 +3,13 @@
 <!--#include file ="base.asp"-->  
 <!DOCTYPE html>
 <%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuáio não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
+
 Existe = 0
 call abreConexao
 sql = "select * from DL_Depoimento"

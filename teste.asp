@@ -3,14 +3,6 @@
 <!--#include file ="base.asp"-->  
 <!DOCTYPE html>
 <%
-if Session("CPF_Usu") = "" then
-response.Write("<script>")
-response.Write("alert('O Usuáio não está logado!');")
-response.Write("window.location.assign('login.asp')")
-response.Write("</script>")
-end if
-
-
 Existe = 0
 call abreConexao
 sql = "Select DL_CadServico.id_CadServico, DL_Servico.id_servico, DL_CadServico.NomeServico, DL_CadServico.Anexo, DL_Servico.Nome_Servico From DL_Servico INNER JOIN DL_CadServico on DL_CadServico.Tipo_Servico = DL_Servico.id_servico;"
@@ -42,11 +34,11 @@ set rs = conn.execute(sql)
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Anexo</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Rótulo</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex align-items-center img-container">
-        <img id="imageModal" src="Upload/<%=rs("Anexo")%>" class="img-fluid mx-auto d-block north" alt="..." style="height: 400px; width:400px" >
+        <img id="imageModal" src="" class="img-fluid mx-auto d-block north" alt="..." style="height: 400px; width:400px" >
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -57,6 +49,21 @@ set rs = conn.execute(sql)
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
  <script>
+  $(document).ready(function(){
+  $('.modal-trigger').on("click", function(e) {
+    e.preventDefault();
+
+    var $this  = $(this),
+        $modal = $($this.data("target")),
+        linkImg = $this.data("value")
+
+      $modal.find('#exampleModal').html(name);
+      document.getElementById("imageModal").src = linkImg;
+        $modal.modal('show');
+    });
+ });
+
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 var resp = url.searchParams.get("resp");
@@ -79,19 +86,7 @@ Swal.fire({
   })
   }
 
-   $(document).ready(function(){
-  $('.modal-trigger').on("click", function(e) {
-    e.preventDefault();
 
-    var $this  = $(this),
-        $modal = $($this.data("target")),
-        linkImg = $this.data("value")
-
-      $modal.find('#exampleModal').html(name);
-      document.getElementById("imageModal").src = linkImg;
-        $modal.modal('show');
-    });
- });
 
  mensagem(resp)
 function mensagem(resp){
@@ -266,6 +261,8 @@ call fechaConexao
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+
+    
 </body>
 
 </html>

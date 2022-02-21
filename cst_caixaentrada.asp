@@ -1,6 +1,15 @@
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%>
 <!--#include file ="lib/Conexao.asp"-->
 <!--#include file ="base.asp"-->  
+<%
+if Session("CPF_Usu") = "" then
+response.Write("<script>")
+response.Write("alert('O Usuáio não está logado!');")
+response.Write("window.location.assign('login.asp')")
+response.Write("</script>")
+end if
+%>
+
 <!DOCTYPE html>
 <!-- Modal -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
