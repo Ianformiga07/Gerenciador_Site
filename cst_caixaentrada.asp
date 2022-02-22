@@ -15,11 +15,25 @@ end if
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
 <script>
+var url_string = window.location.href;
+var url = new URL(url_string);
+var resp = url.searchParams.get("resp");
+
 function visualizar(cod)
 {
   window.location="mensagem.asp?cod=" + cod ;
 }
 
+mensagem(resp)
+function mensagem(resp){
+if(resp == 1){
+	Swal.fire(
+  'Otimo',
+  'Mensagem visualizada com Sucesso!',
+  'success'
+)
+}
+}
 </script>
 <html dir="ltr" lang="en">
 

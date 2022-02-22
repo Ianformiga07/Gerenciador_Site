@@ -30,19 +30,48 @@ set rs = conn.execute(sql)
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" /> 
  
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+ 
   <!-- =======================================================
   * Template Name: Maxim - v4.7.0
   * Template URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
 </head>
 <script src="javascript/Mascara.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.2.1/dist/sweetalert2.min.js"></script>
+<script>
+
+
+
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var resp = url.searchParams.get("resp");
+
+mensagem(resp);
+function mensagem(resp){
+  if(resp == 1){
+  
+    $(function() {
+  // Document is ready
+  Swal.fire(
+        'Otimo',
+        'Mensagem Enviada com Sucesso!',
+        'success'
+      );
+}); 
+    
+  }
+}
+</script>
 
 <body>
 
