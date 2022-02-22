@@ -91,7 +91,7 @@ set rs = conn.execute(sql)
                                         <h4 class="font-medium">E-mail:</h4>
                                         <span class="mb-3 d-block"><%=rs("EmailCliente")%></span>
                                         <h4 class="font-medium">Telefone:</h4>
-                                        <span class="mb-3 d-block"><%=rs("telefone")%></span>
+                                        <span class="mb-3 d-block"><%=left(rs("telefone"),0)&"("&mid(rs("telefone"),1,2)&")"&mid(rs("telefone"),3,5)&"-"&mid(rs("telefone"),8,4)%></span>
                                         <h4 class="font-medium">Descrição:</h4>
                                         <span class="mb-3 d-block"><%=rs("Assunto")%></span>
                                         <h4 class="font-medium">Mensagem:</h4>

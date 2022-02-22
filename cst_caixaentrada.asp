@@ -107,7 +107,7 @@ do while not rs.eof
 		</td>
         <td><%=rs("NomeCliente")%></td>
         <td><%=rs("EmailCliente")%></td>
-        <td><%=rs("telefone")%></td>
+        <td><%=left(rs("telefone"),0)&"("&mid(rs("telefone"),1,2)&")"&mid(rs("telefone"),3,5)&"-"&mid(rs("telefone"),8,4)%></td>
         <td><%=rs("DataContato")%></td>
         <td><% if rs("statusUsuario") = true then %>
           <font color="#009933"> Visualizado </font>
