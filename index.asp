@@ -42,6 +42,7 @@ set rs = conn.execute(sql)
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<script src="javascript/Mascara.js"></script>
 
 <body>
 
@@ -301,7 +302,7 @@ call fechaConexao
                   <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Descrição" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="Telefone" class="form-control" name="Telefone" id="Telefone" placeholder="(00)00000-0000" required>
+                  <input type="Telefone" class="form-control" name="Telefone" id="Telefone" onkeypress="MascaraCelular(Telefone)" maxlength="15" placeholder="(00)00000-0000" onblur="MascaraCelular(Telefone)" required>
                 </div>
               </div>
               <div class="form-group mt-3">
