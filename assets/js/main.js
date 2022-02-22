@@ -232,6 +232,33 @@
       once: true,
       mirror: false
     })
-  });
-
+  });  
 })()
+
+function visualizarFotos(id) {
+  $(".services-item-retorno").html("");
+  $.ajax({
+      type: "POST",
+      url: 'ajax/servicos.ajax.asp',
+      data: 'id=' + id,
+      cache: false,
+      beforeSend: function () {
+        $('.ajax-load').fadeIn('fast');
+      },
+      error: function () {
+        $('.ajax-load').fadeOut('slow', function () {
+          alert("Erro ao enviar!");
+        });         
+      },
+      success: function (success) {
+        $('.ajax-load').fadeOut('slow', function () {
+          $(".services-item-retorno").html(success);
+          setTimeout(function() { 
+            $(".fancybox-imagens").click();
+          }, 300);
+          
+        });
+      }
+  })
+  return false;
+}  

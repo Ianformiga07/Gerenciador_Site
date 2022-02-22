@@ -2,7 +2,7 @@
 
 <%
 call abreConexao
-sql = "select * from DL_CadLogin where CPF = "&Session("CPF_Usu")&""
+sql = "select * from DL_CadLogin where CPF = '"&Session("CPF_Usu")&"'"
 set rs = conn.execute(sql)
 %>
 <!DOCTYPE html>
@@ -30,6 +30,7 @@ set rs = conn.execute(sql)
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ 
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -124,21 +125,20 @@ set rs = conn.execute(sql)
         <div class="row">
 <%
 call abreConexao
-sql = "select * from DL_CadServico inner join DL_Servico on DL_Servico.id_servico = DL_CadServico.Tipo_Servico order by id_CadServico"
+sql = "select * from DL_Servico order by id_Servico"
 set rs = conn.execute(sql)
 do while not rs.eof
 %>
             <div class="col-md-6 col-lg-3 col-xs-12" data-aos="fade-up">
-            <div class="services-item wow fadeInDown" data-wow-delay="0.3s">
-            <div class="icon-box icon-box-cyan">
-              <div class="icon"><i class="bi bi-grid"></i></div>
-              <div class="services-content">
-              <h4 class="title"><a href=""><%=rs("Nome_Servico")%></a></h4>
-              <p class="description"><%=rs("NomeServico")%></p>
+              <div class="services-item wow fadeInDown" data-wow-delay="0.3s" onclick="visualizarFotos('<%=rs("id_Servico")%>')">
+                <div class="icon-box icon-box-cyan">
+                  <div class="icon"><i class="bi bi-grid"></i></div>
+                  <div class="services-content">
+                    <h4 class="title"><span><%=rs("Nome_Servico")%></span></h4>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          </div>
 
 
 
@@ -148,6 +148,7 @@ rs.movenext
 loop
 call fechaConexao
 %>
+<div class="services-item-retorno"></div>
         </div>
 
       </div>
@@ -288,14 +289,14 @@ call fechaConexao
           <div class="col-lg-10">
             <form action="envia_mensagem.asp" method="post" role="form" class="form-group">
               <div class="row">
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group mb-2">
                   <input type="text" name="nome" class="form-control" id="name" placeholder="Seu Nome" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" placeholder="joao@gmail.com" required>
                 </div>
               </div>
- 				<div class="row">
+ 				      <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="assunto" class="form-control" id="assunto" placeholder="Descrição" required>
                 </div>
@@ -306,12 +307,7 @@ call fechaConexao
               <div class="form-group mt-3">
                 <textarea class="form-control" name="mensagem" rows="5" placeholder="Mensagem" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Menssagem enviada com Sucesso!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar</button></div>
+              <div class="text-center"><button type="submit" class="btn btn-primary btn-contato">Enviar</button></div>
             </form>
           </div>
 
@@ -376,15 +372,24 @@ call fechaConexao
     </div>
   </footer><!-- End Footer -->
 
+  <!--- Ajax Load --->
+  <div class="ajax-load">
+      <img src="<%=URL%>/imagens/ajax-loader.gif" alt="" />
+      <div class="ajax-load-text">CARREGANDO...</div>
+  </div>
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+ 
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 #header .logo img {
   padding: 0;
   margin: 0;
-  max-height: 999px;
+  height: 65px;
 }
 @media (max-width: 992px) {
   #header {
@@ -589,7 +589,8 @@ section {
   transition: all 0.3s ease-in-out;
   border-radius: 15px;
   text-align: center;
-  border-bottom: 3px solid #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
 }
 .services .icon-box:hover {
   box-shadow: 0 2px 29px 0 rgba(37, 37, 37, 0.1);
@@ -678,6 +679,7 @@ section {
   border-radius: 6px;
   position: relative;
   z-index: 1;
+  height: 150px;
 }
 .testimonials .swiper-pagination {
   margin-top: 20px;
@@ -1305,3 +1307,20 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+.btn-contato{
+  float: left;
+  margin-top: 15px;
+}
+
+.fancybox-imagens{
+  display: none;
+}
+
+/*
+ * Ajax Load
+ * --------------
+ */
+ .ajax-load{width: 150px; height: 40px; display: none; position: fixed; top: 50%; left: 50%; margin-left: -75px; margin-top: -20px; background-color: #000; color: #FFF; font-size: 0.8em; z-index: 9999999}
+ .ajax-load img{float: left; margin: 9px 4px 0 11px;}
+ .ajax-load-text{float: left; margin: 11px 0 0 0; font-size: 14px;}

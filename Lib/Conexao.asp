@@ -1,8 +1,8 @@
 <%
-	dim conn
+dim conn
 sub abreConexao
 
-	'Criando a conexão com o BD
+	'Criando a conexï¿½o com o BD
 	strcon =  "Provider=SQLNCLI11;Server=localhost;Database=Testando;Uid=sa;Pwd=123;"
 	set conn = Server.CreateObject("ADODB.Connection")
 	conn.open(strcon)	
@@ -10,8 +10,11 @@ end sub
 
 
 sub fechaConexao
-	'Fechando a conexão com o BD
+	'Fechando a conexï¿½o com o BD
 	conn.Close()
 	Set conn = Nothing
 end sub
+
+Dim URL
+URL = "http://localhost/dlauras"
 %>
