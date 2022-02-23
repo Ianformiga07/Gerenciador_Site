@@ -147,11 +147,6 @@ function login(cpf)
           <p> 
             <input type="submit" value="Entrar" onclick="return login();"/> 
           </p>
-          
-          <p class="link">
-            Ainda não tem conta?
-            <a href="CadLogin.asp">Cadastre-se</a>
-          </p>
         </form>
       </div>
 

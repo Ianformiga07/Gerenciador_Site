@@ -22,12 +22,11 @@ call abreConexao
     'response.end
 	conn.execute(sql)
   call fechaConexao
+  Response.Redirect("cst_caixaentrada.asp?resp=1")
 end if
 %>
 
 <script>
-alert("Mensagem Visualizada com Sucesso!")
-parent.location = "cst_caixaentrada.asp"
 
 </script>
 

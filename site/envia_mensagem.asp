@@ -14,7 +14,7 @@ mensagem = request.form("mensagem")
 'RESPONSE.END
 'inserir no bando de dados através do INSERT
 call abreConexao
-sql = "insert into DL_Contato (NomeCliente, EmailCliente, Assunto, Telefone, Mensagem, DataContato, status) values ('"&nome&"','"&email&"','"&assunto&"', '"&replace(replace(replace(replace((Telefone),"(",""),")",""),"-", ""), " ", "")&"','"&mensagem&"', getdate(), 0)"
+sql = "insert into DL_Contato (NomeCliente, EmailCliente, Assunto, Telefone, Mensagem, DataContato, status) values ('"&nome&"','"&email&"','"&assunto&"', '"&Telefone&"','"&mensagem&"', getdate(), 0)"
 'response.write sql
 'response.end
 'response.write sql
@@ -23,8 +23,8 @@ conn.execute(sql)
 
 ' enviar mensagem e redirecionar para a index
 call fechaConexao
-response.Redirect("index.asp?resp=1")
 %>
 <script>
-
+  alert("Mensagem enviada com sucesso, em breve entraremos em contato.")
+  parent.location = "index.asp"
 </script>

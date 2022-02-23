@@ -74,7 +74,7 @@ Swal.fire({
     confirmButtonText: 'Sim, prosseguir!'
   }).then((result) => {
     if (result.value) {
-        window.location="excluir_servico?opc=exc&cod=" + cod ;
+        window.location="excluir_servico.asp?opc=exc&cod=" + cod ;
     }
   })
   }
